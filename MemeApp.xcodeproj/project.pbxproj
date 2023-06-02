@@ -17,7 +17,10 @@
 		0334A7F02A298F6900305E75 /* MemeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0334A7EF2A298F6900305E75 /* MemeAppUITests.swift */; };
 		0334A7F22A298F6900305E75 /* MemeAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0334A7F12A298F6900305E75 /* MemeAppUITestsLaunchTests.swift */; };
 		0334A8012A29914A00305E75 /* Permissions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0334A8002A29914A00305E75 /* Permissions.storyboard */; };
-		0334A8032A29975800305E75 /* CameraPermissionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0334A8022A29975800305E75 /* CameraPermissionsVC.swift */; };
+		0334A8032A29975800305E75 /* PermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0334A8022A29975800305E75 /* PermissionViewController.swift */; };
+		037FC4192A29B0D200300439 /* PermissionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037FC4182A29B0D200300439 /* PermissionViewModel.swift */; };
+		037FC41C2A29B42700300439 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037FC41B2A29B42700300439 /* K.swift */; };
+		037FC41F2A29B4E700300439 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037FC41E2A29B4E700300439 /* Observable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +55,10 @@
 		0334A7EF2A298F6900305E75 /* MemeAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeAppUITests.swift; sourceTree = "<group>"; };
 		0334A7F12A298F6900305E75 /* MemeAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0334A8002A29914A00305E75 /* Permissions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Permissions.storyboard; sourceTree = "<group>"; };
-		0334A8022A29975800305E75 /* CameraPermissionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermissionsVC.swift; sourceTree = "<group>"; };
+		0334A8022A29975800305E75 /* PermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionViewController.swift; sourceTree = "<group>"; };
+		037FC4182A29B0D200300439 /* PermissionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionViewModel.swift; sourceTree = "<group>"; };
+		037FC41B2A29B42700300439 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
+		037FC41E2A29B4E700300439 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				0334A7FE2A298FC700305E75 /* Permissions */,
+				037FC41A2A29B39E00300439 /* Common */,
+				037FC41D2A29B4D700300439 /* Helper */,
 				0334A7CE2A298F6600305E75 /* AppDelegate.swift */,
 				0334A7D02A298F6600305E75 /* SceneDelegate.swift */,
 				0334A7D22A298F6600305E75 /* ViewController.swift */,
@@ -135,7 +143,9 @@
 		0334A7FE2A298FC700305E75 /* Permissions */ = {
 			isa = PBXGroup;
 			children = (
+				037FC4202A29B60D00300439 /* Model */,
 				0334A7FF2A29913100305E75 /* View */,
+				037FC4172A29B0C200300439 /* ViewModel */,
 			);
 			path = Permissions;
 			sourceTree = "<group>";
@@ -144,9 +154,40 @@
 			isa = PBXGroup;
 			children = (
 				0334A8002A29914A00305E75 /* Permissions.storyboard */,
-				0334A8022A29975800305E75 /* CameraPermissionsVC.swift */,
+				0334A8022A29975800305E75 /* PermissionViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		037FC4172A29B0C200300439 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				037FC4182A29B0D200300439 /* PermissionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		037FC41A2A29B39E00300439 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				037FC41B2A29B42700300439 /* K.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		037FC41D2A29B4D700300439 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				037FC41E2A29B4E700300439 /* Observable.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		037FC4202A29B60D00300439 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,7 +324,10 @@
 			files = (
 				0334A7D32A298F6600305E75 /* ViewController.swift in Sources */,
 				0334A7CF2A298F6600305E75 /* AppDelegate.swift in Sources */,
-				0334A8032A29975800305E75 /* CameraPermissionsVC.swift in Sources */,
+				037FC4192A29B0D200300439 /* PermissionViewModel.swift in Sources */,
+				037FC41F2A29B4E700300439 /* Observable.swift in Sources */,
+				037FC41C2A29B42700300439 /* K.swift in Sources */,
+				0334A8032A29975800305E75 /* PermissionViewController.swift in Sources */,
 				0334A7D12A298F6600305E75 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,9 +510,10 @@
 				INFOPLIST_FILE = MemeApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Permissions;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -497,9 +542,10 @@
 				INFOPLIST_FILE = MemeApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Permissions;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

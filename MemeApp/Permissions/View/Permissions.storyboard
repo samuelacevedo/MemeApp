@@ -1,23 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Camera PermissionsVC-->
+        <!--Permission View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="CameraPermissionsVC" customModule="MemeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Y6W-OH-hqX" customClass="PermissionViewController" customModule="MemeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uQL-Ld-IRo" userLabel="Icon">
+                                <rect key="frame" x="68.666666666666671" y="149.33333333333331" width="255.66666666666663" height="255.33333333333331"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zz-R7-vuO" userLabel="TitleLabel">
+                                <rect key="frame" x="146.33333333333334" y="416.66666666666669" width="100.66666666666666" height="26.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZV-Qb-eMX" userLabel="DescriptionLabel">
+                                <rect key="frame" x="59" y="454.99999999999994" width="275" height="121.33333333333331"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EmN-Id-aht" userLabel="AllowButton">
+                                <rect key="frame" x="82.666666666666671" y="601.33333333333337" width="227.66666666666663" height="35.333333333333371"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="EmN-Id-aht" secondAttribute="height" multiplier="155:24" id="PUQ-Uw-gGz"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Allow"/>
+                                <connections>
+                                    <action selector="allowButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="6fu-f7-BGH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wh6-e7-pAF" userLabel="CancelButton">
+                                <rect key="frame" x="82.666666666666671" y="654.66666666666663" width="227.66666666666663" height="35.333333333333371"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Wh6-e7-pAF" secondAttribute="height" multiplier="155:24" id="LFb-W1-bH7"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="tMv-47-6EA"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Wh6-e7-pAF" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="4Yo-bh-TDr"/>
+                            <constraint firstItem="PZV-Qb-eMX" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="58O-qL-8SZ"/>
+                            <constraint firstItem="uQL-Ld-IRo" firstAttribute="height" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="0.65" id="A3u-hp-OxT"/>
+                            <constraint firstItem="PZV-Qb-eMX" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="0.7" id="Kpr-1h-bUR"/>
+                            <constraint firstItem="6zz-R7-vuO" firstAttribute="top" secondItem="uQL-Ld-IRo" secondAttribute="bottom" constant="12" id="Sb1-dQ-GCo"/>
+                            <constraint firstItem="EmN-Id-aht" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="0.58" id="V5H-2h-dJu"/>
+                            <constraint firstItem="Wh6-e7-pAF" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="0.58" id="VIG-qW-zGS"/>
+                            <constraint firstItem="EmN-Id-aht" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="bR1-xv-8OV"/>
+                            <constraint firstItem="6zz-R7-vuO" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="brO-Pe-Uxf"/>
+                            <constraint firstItem="PZV-Qb-eMX" firstAttribute="top" secondItem="6zz-R7-vuO" secondAttribute="bottom" constant="12" id="cRL-6q-p3T"/>
+                            <constraint firstItem="uQL-Ld-IRo" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="dsa-q2-gZ4"/>
+                            <constraint firstItem="Wh6-e7-pAF" firstAttribute="top" secondItem="EmN-Id-aht" secondAttribute="bottom" constant="18" id="e2k-Nf-6fU"/>
+                            <constraint firstItem="uQL-Ld-IRo" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" multiplier="0.65" id="eDo-hV-dyl"/>
+                            <constraint firstItem="uQL-Ld-IRo" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="0.65" id="j6Z-mt-ej7"/>
+                            <constraint firstItem="EmN-Id-aht" firstAttribute="top" secondItem="PZV-Qb-eMX" secondAttribute="bottom" constant="25" id="mDv-U0-CDB"/>
+                            <constraint firstItem="PZV-Qb-eMX" firstAttribute="height" secondItem="vDu-zF-Fre" secondAttribute="height" multiplier="0.16" id="mwS-60-7Zv"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="allowButton" destination="EmN-Id-aht" id="2Lc-AU-XkM"/>
+                        <outlet property="cancelButton" destination="Wh6-e7-pAF" id="Qej-19-1fM"/>
+                        <outlet property="descriptionLabel" destination="PZV-Qb-eMX" id="6hL-3V-MqG"/>
+                        <outlet property="iconImageView" destination="uQL-Ld-IRo" id="NkC-t4-pce"/>
+                        <outlet property="titleLabel" destination="6zz-R7-vuO" id="XiX-fe-9Iq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
