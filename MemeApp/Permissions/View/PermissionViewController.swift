@@ -24,7 +24,7 @@ class PermissionViewController: UIViewController {
     
     //MARK: - View Did Layout Subviews
     override func viewDidLayoutSubviews() {
-
+        allowButton.ubiiCardButtonGradient(colours: [K.firstGradientColor, K.secondGradientColor], cornerMultiplier: 0.5)
     }
     
     //MARK: - View Did Load
@@ -33,6 +33,15 @@ class PermissionViewController: UIViewController {
         
         //MARK: View Model
         viewModel = PermissionViewModel()
+        
+        //MARK: Setup Info
+        if let permissionInfo = viewModel?.getPermissionInformation(permissionEnum: permissionEnum) {
+            if let image = UIImage(named: permissionInfo.iconName) {
+                iconImageView.image = image
+            }
+            titleLabel.text = permissionInfo.title
+            descriptionLabel.text = permissionInfo.description
+        }
     }
     
     //MARK: - View Will Appear
@@ -62,7 +71,6 @@ class PermissionViewController: UIViewController {
             case .none :
                 print("none")
         }
-        proceedWithCameraAccess()
     }
     
     //MARK: - Cancel
@@ -70,27 +78,4 @@ class PermissionViewController: UIViewController {
         
     }
     
-    func proceedWithCameraAccess(){
-        if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
-            
-        }else if AVCaptureDevice.authorizationStatus(for: .video) == .notDetermined {
-            AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted: Bool) in
-                if granted {
-                    print("granted")
-                    //access allowed
-                }else {
-                    print("no granted")
-                    //access denied
-                }
-            })
-        }else {
-            AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted: Bool) in
-                if granted {
-                    //access allowed
-                }else {
-                    //access denied
-                }
-            })
-        }
-    }
 }

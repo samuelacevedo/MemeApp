@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		032C9A0D2A2AD8F400B86878 /* ButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032C9A0C2A2AD8F400B86878 /* ButtonExtension.swift */; };
+		032C9A0F2A2AE14400B86878 /* PermissionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032C9A0E2A2AE14400B86878 /* PermissionInfo.swift */; };
 		0334A7CF2A298F6600305E75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0334A7CE2A298F6600305E75 /* AppDelegate.swift */; };
 		0334A7D12A298F6600305E75 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0334A7D02A298F6600305E75 /* SceneDelegate.swift */; };
 		0334A7D32A298F6600305E75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0334A7D22A298F6600305E75 /* ViewController.swift */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		032C9A0C2A2AD8F400B86878 /* ButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtension.swift; sourceTree = "<group>"; };
+		032C9A0E2A2AE14400B86878 /* PermissionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionInfo.swift; sourceTree = "<group>"; };
 		0334A7CB2A298F6600305E75 /* MemeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0334A7CE2A298F6600305E75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0334A7D02A298F6600305E75 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				037FC41B2A29B42700300439 /* K.swift */,
+				032C9A0C2A2AD8F400B86878 /* ButtonExtension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 		037FC4202A29B60D00300439 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				032C9A0E2A2AE14400B86878 /* PermissionInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -329,6 +335,8 @@
 				037FC41C2A29B42700300439 /* K.swift in Sources */,
 				0334A8032A29975800305E75 /* PermissionViewController.swift in Sources */,
 				0334A7D12A298F6600305E75 /* SceneDelegate.swift in Sources */,
+				032C9A0D2A2AD8F400B86878 /* ButtonExtension.swift in Sources */,
+				032C9A0F2A2AE14400B86878 /* PermissionInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

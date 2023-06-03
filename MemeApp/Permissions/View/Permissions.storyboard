@@ -1,23 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="C0j-Ji-V0Q">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="2WY-zs-iRX">
+            <objects>
+                <navigationController modalPresentationStyle="fullScreen" id="C0j-Ji-V0Q" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kEJ-uu-hdU">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="go4-Cf-dO3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KkR-DP-bCA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-769" y="-2"/>
+        </scene>
         <!--Permission View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="PermissionViewController" customModule="MemeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Y6W-OH-hqX" customClass="PermissionViewController" customModule="MemeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uQL-Ld-IRo" userLabel="Icon">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CameraIcon" translatesAutoresizingMaskIntoConstraints="NO" id="uQL-Ld-IRo" userLabel="Icon">
                                 <rect key="frame" x="68.666666666666671" y="149.33333333333331" width="255.66666666666663" height="255.33333333333331"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zz-R7-vuO" userLabel="TitleLabel">
@@ -27,29 +44,35 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZV-Qb-eMX" userLabel="DescriptionLabel">
-                                <rect key="frame" x="59" y="454.99999999999994" width="275" height="121.33333333333331"/>
+                                <rect key="frame" x="59" y="454.99999999999994" width="275" height="114.33333333333331"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EmN-Id-aht" userLabel="AllowButton">
-                                <rect key="frame" x="82.666666666666671" y="601.33333333333337" width="227.66666666666663" height="35.333333333333371"/>
+                                <rect key="frame" x="90.333333333333329" y="594.33333333333337" width="212.33333333333337" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="EmN-Id-aht" secondAttribute="height" multiplier="155:24" id="PUQ-Uw-gGz"/>
+                                    <constraint firstAttribute="width" secondItem="EmN-Id-aht" secondAttribute="height" multiplier="155:32" id="PUQ-Uw-gGz"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Allow"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Allow">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="allowButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="6fu-f7-BGH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wh6-e7-pAF" userLabel="CancelButton">
-                                <rect key="frame" x="82.666666666666671" y="654.66666666666663" width="227.66666666666663" height="35.333333333333371"/>
+                                <rect key="frame" x="82.666666666666671" y="656.33333333333337" width="227.66666666666663" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Wh6-e7-pAF" secondAttribute="height" multiplier="155:24" id="LFb-W1-bH7"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" name="ButtonGrayTextColor"/>
+                                </state>
                                 <connections>
                                     <action selector="cancelButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="tMv-47-6EA"/>
                                 </connections>
@@ -63,7 +86,7 @@
                             <constraint firstItem="uQL-Ld-IRo" firstAttribute="height" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="0.65" id="A3u-hp-OxT"/>
                             <constraint firstItem="PZV-Qb-eMX" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="0.7" id="Kpr-1h-bUR"/>
                             <constraint firstItem="6zz-R7-vuO" firstAttribute="top" secondItem="uQL-Ld-IRo" secondAttribute="bottom" constant="12" id="Sb1-dQ-GCo"/>
-                            <constraint firstItem="EmN-Id-aht" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="0.58" id="V5H-2h-dJu"/>
+                            <constraint firstItem="EmN-Id-aht" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="0.54" id="V5H-2h-dJu"/>
                             <constraint firstItem="Wh6-e7-pAF" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="0.58" id="VIG-qW-zGS"/>
                             <constraint firstItem="EmN-Id-aht" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="bR1-xv-8OV"/>
                             <constraint firstItem="6zz-R7-vuO" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="brO-Pe-Uxf"/>
@@ -76,6 +99,7 @@
                             <constraint firstItem="PZV-Qb-eMX" firstAttribute="height" secondItem="vDu-zF-Fre" secondAttribute="height" multiplier="0.16" id="mwS-60-7Zv"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="lSg-03-blI"/>
                     <connections>
                         <outlet property="allowButton" destination="EmN-Id-aht" id="2Lc-AU-XkM"/>
                         <outlet property="cancelButton" destination="Wh6-e7-pAF" id="Qej-19-1fM"/>
@@ -90,6 +114,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CameraIcon" width="263" height="231"/>
+        <namedColor name="ButtonGrayTextColor">
+            <color red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

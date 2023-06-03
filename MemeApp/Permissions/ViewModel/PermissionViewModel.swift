@@ -41,6 +41,20 @@ class PermissionViewModel : NSObject, ObservablePermissionProtocol {
         self.permissionResult = Observable(.failure(.none))
     }
     
+    //MARK: - Info
+    func getPermissionInformation(permissionEnum: Permission) -> PermissionInfo? {
+        switch permissionEnum {
+            case .camera:
+                return K.cameraPermissionInfo
+            case .notification:
+                return K.locationPermissionInfo
+            case .location:
+                return K.locationPermissionInfo
+            default:
+                return nil
+        }
+    }
+    
     //MARK: - Permissions
     func cameraPermission(){
         let camaraPermissionStatus = AVCaptureDevice.authorizationStatus(for: .video)
