@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import AVFoundation
+import CoreLocation
 
 class PermissionViewController: UIViewController {
     //MARK: IBOutlets
@@ -21,6 +21,8 @@ class PermissionViewController: UIViewController {
     
     //MARK: View Model
     var viewModel: PermissionViewModel?
+    
+    var locationManager: CLLocationManager?
     
     //MARK: - View Did Layout Subviews
     override func viewDidLayoutSubviews() {
@@ -41,33 +43,84 @@ class PermissionViewController: UIViewController {
             }
             titleLabel.text = permissionInfo.title
             descriptionLabel.text = permissionInfo.description
+            
+            if permissionEnum == .location {
+                locationManager = CLLocationManager()
+            }
         }
     }
     
     //MARK: - View Will Appear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-            
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.tintColor = .clear
+        self.navigationController?.navigationBar.barTintColor = .clear
+        self.navigationController?.navigationBar.backItem?.title = " "
+        self.navigationItem.title = " "
     }
     
     //MARK: - Allow
     @IBAction func allowButtonAction(_ sender: Any) {
         switch permissionEnum {
             case .camera:
-                viewModel?.cameraPermission()
+                viewModel?.askCameraPermission()
                 viewModel?.permissionResult.bind { (respond) in
                     switch respond {
                         case .success(let message):
+                        DispatchQueue.main.async {
                             print("\(message) unread messages.")
+                            if let vc = UIStoryboard(name: "Permissions", bundle: nil).instantiateViewController(withIdentifier: "PermissionVC") as? PermissionViewController {
+                                vc.permissionEnum = .notification
+                                self.navigationController?.pushViewController(vc, animated: true)
+                            }
+                        }
                         case .failure(let error):
                             print(error.localizedDescription)
-                            
+                    }
+                }
+            case .notification:
+                viewModel?.askNotificationPermission()
+                viewModel?.permissionResult.bind { (respond) in
+                    switch respond {
+                    case .success(_):
+                        DispatchQueue.main.async {
+                            if let vc = UIStoryboard(name: "Permissions", bundle: nil).instantiateViewController(withIdentifier: "PermissionVC") as? PermissionViewController {
+                                vc.permissionEnum = .location
+                                self.navigationController?.pushViewController(vc, animated: true)
+                            }
+                        }
+                    case .failure(let error):
+                        print(error.localizedDescription)
                     }
                 }
             case .location:
-                print("location")
-            case .notification:
-                print("notification")
+                viewModel?.askLocationPermissions(locationManager: locationManager)
+                viewModel?.permissionResult.bind { (respond) in
+                    switch respond {
+                        case .success(_):
+                            DispatchQueue.main.async {
+                                //MARK: Set Finish Permission & User Defaults
+                                let defaults = UserDefaults.standard
+                                defaults.set(true, forKey: "permissions")
+                                
+                                //MARK: Change RootViewController To Home
+                                let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
+                                if let home = homeStoryboard.instantiateViewController(withIdentifier: "HomeNavController") as? UINavigationController {
+                                    if let scene = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+                                        scene.changeRootViewController(home)
+                                    }
+                                }
+                            }
+                        case .failure(let error):
+                            print(error)
+                            print(error.hashValue)
+                            print(error.localizedDescription)
+                    }
+                    
+                }
             case .none :
                 print("none")
         }

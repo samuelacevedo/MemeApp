@@ -13,7 +13,7 @@
         <!--Navigation Controller-->
         <scene sceneID="2WY-zs-iRX">
             <objects>
-                <navigationController modalPresentationStyle="fullScreen" id="C0j-Ji-V0Q" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PermissionNavController" modalPresentationStyle="fullScreen" id="C0j-Ji-V0Q" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kEJ-uu-hdU">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -29,7 +29,7 @@
         <!--Permission View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Y6W-OH-hqX" customClass="PermissionViewController" customModule="MemeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PermissionVC" modalPresentationStyle="fullScreen" id="Y6W-OH-hqX" customClass="PermissionViewController" customModule="MemeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
