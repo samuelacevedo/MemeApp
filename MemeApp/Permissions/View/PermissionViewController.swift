@@ -69,9 +69,8 @@ class PermissionViewController: UIViewController {
                 viewModel?.askCameraPermission()
                 viewModel?.permissionResult.bind { (respond) in
                     switch respond {
-                        case .success(let message):
+                        case .success(_):
                         DispatchQueue.main.async {
-                            print("\(message) unread messages.")
                             if let vc = UIStoryboard(name: "Permissions", bundle: nil).instantiateViewController(withIdentifier: "PermissionVC") as? PermissionViewController {
                                 vc.permissionEnum = .notification
                                 self.navigationController?.pushViewController(vc, animated: true)

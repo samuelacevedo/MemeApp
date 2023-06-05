@@ -82,7 +82,6 @@ class PermissionViewModel : NSObject, ObservablePermissionProtocol, CLLocationMa
                 self.permissionResult.value = .failure(.denied)
             default:
                 self.permissionResult.value = .failure(.none)
-            
         }
     }
     

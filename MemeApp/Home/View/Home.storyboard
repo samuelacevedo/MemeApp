@@ -48,20 +48,33 @@
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="eMl-BF-Mrb"/>
                                 </connections>
                             </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="R7C-pj-U4y" userLabel="TableView">
+                                <rect key="frame" x="19.666666666666657" y="212" width="353.66666666666674" height="596"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="hQJ-ig-blp" firstAttribute="height" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="0.1" id="3PB-gL-lsv"/>
                             <constraint firstItem="PEM-MS-3Ni" firstAttribute="top" secondItem="hQJ-ig-blp" secondAttribute="bottom" constant="8" id="3SX-KW-GsT"/>
+                            <constraint firstItem="R7C-pj-U4y" firstAttribute="top" secondItem="PEM-MS-3Ni" secondAttribute="bottom" constant="10" id="DlQ-7E-cwe"/>
                             <constraint firstItem="hQJ-ig-blp" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="0.1" id="GEF-hL-14R"/>
+                            <constraint firstItem="R7C-pj-U4y" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="0.9" id="Q9i-Sp-Pkp"/>
                             <constraint firstItem="hQJ-ig-blp" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="XtQ-yD-IDF"/>
                             <constraint firstItem="PEM-MS-3Ni" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="ajo-Sv-51z"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="R7C-pj-U4y" secondAttribute="bottom" constant="10" id="e4U-E2-om8"/>
+                            <constraint firstItem="R7C-pj-U4y" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="koy-t0-s7e"/>
                             <constraint firstItem="PEM-MS-3Ni" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="0.85" id="orA-tp-BYg"/>
                             <constraint firstItem="hQJ-ig-blp" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="yDq-iP-ywD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="P0p-gb-hfh"/>
+                    <connections>
+                        <outlet property="configButton" destination="hQJ-ig-blp" id="8dE-ZG-AI6"/>
+                        <outlet property="searchBar" destination="PEM-MS-3Ni" id="cA0-2l-4Qo"/>
+                        <outlet property="tableView" destination="R7C-pj-U4y" id="9D3-sT-PF8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
