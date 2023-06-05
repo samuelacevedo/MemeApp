@@ -12,6 +12,13 @@ struct Post {
     var url: String
     var score: Int
     var commentCount: Int
+    
+    init(){
+        title = ""
+        url = ""
+        score = -1
+        commentCount = -1
+    }
 }
 
 extension Post {

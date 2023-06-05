@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 //MARK: - Http Method
 enum HttpMethod: String {
@@ -37,6 +38,35 @@ class HomeServices: NSObject {
                 
                 return
             }
+            
+            if let responseAsString = String(data: data, encoding: .utf8) {
+                let jsonresp = JSON.init(parseJSON: responseAsString)
+                
+                if jsonresp["data"]["children"].exists(), let childrenAsString = jsonresp["data"]["children"].rawString() {
+                    let childrenAsJSON = JSON.init(parseJSON: childrenAsString)
+                    var post: Post = Post()
+                    if let childrens = childrenAsJSON.array {
+                        var listOfPosts : [Post] = []
+                        for child in childrens {
+                            if child["data"]["title"].exists() {
+                                print(child["data"]["title"].rawString()!)
+                            }
+                        }
+                    }
+                }
+            }
+                    
+            /*if jsonresp.count == 0 {
+                OperationQueue.main.addOperation {
+                    completion(nil, "Ha ocurrido un error")
+                }
+                return
+            }
+            
+            switch jsonresp["R"] {
+            case "0":
+                DispatchQueue.main.async {
+                    do {*/
             
             /*
             let result = try? JSONDecoder().decode(T.self, from: data)

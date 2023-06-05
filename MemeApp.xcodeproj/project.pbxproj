@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -30,6 +30,9 @@
 		037FC4192A29B0D200300439 /* PermissionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037FC4182A29B0D200300439 /* PermissionViewModel.swift */; };
 		037FC41C2A29B42700300439 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037FC41B2A29B42700300439 /* K.swift */; };
 		037FC41F2A29B4E700300439 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037FC41E2A29B4E700300439 /* Observable.swift */; };
+		14E29B48FFE103D78250EBEE /* Pods_MemeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 027009249EECA60F8730E9FA /* Pods_MemeApp.framework */; };
+		3653ADF8FB9FE917775B0974 /* Pods_MemeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D7D00551ACF153FED95DEFF /* Pods_MemeAppTests.framework */; };
+		67CEA8D13B3D68B8EDDA8614 /* Pods_MemeApp_MemeAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22767C9D3114C653F3488C07 /* Pods_MemeApp_MemeAppUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		027009249EECA60F8730E9FA /* Pods_MemeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		032C9A0C2A2AD8F400B86878 /* ButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtension.swift; sourceTree = "<group>"; };
 		032C9A0E2A2AE14400B86878 /* PermissionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionInfo.swift; sourceTree = "<group>"; };
 		032C9A122A2D304700B86878 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -77,6 +81,14 @@
 		037FC4182A29B0D200300439 /* PermissionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionViewModel.swift; sourceTree = "<group>"; };
 		037FC41B2A29B42700300439 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		037FC41E2A29B4E700300439 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		08BA8E7E15A5F3CB8729D1FA /* Pods-MemeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeApp.release.xcconfig"; path = "Target Support Files/Pods-MemeApp/Pods-MemeApp.release.xcconfig"; sourceTree = "<group>"; };
+		22767C9D3114C653F3488C07 /* Pods_MemeApp_MemeAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemeApp_MemeAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BC4FA612CBAA5CDC75DDF7C /* Pods-MemeApp-MemeAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeApp-MemeAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-MemeApp-MemeAppUITests/Pods-MemeApp-MemeAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		49F59624F1C70727666B17EC /* Pods-MemeApp-MemeAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeApp-MemeAppUITests.release.xcconfig"; path = "Target Support Files/Pods-MemeApp-MemeAppUITests/Pods-MemeApp-MemeAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		6DFD177538960A4612143257 /* Pods-MemeAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeAppTests.release.xcconfig"; path = "Target Support Files/Pods-MemeAppTests/Pods-MemeAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		7D7D00551ACF153FED95DEFF /* Pods_MemeAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemeAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90D64DACE8F3A59EB9A7F00E /* Pods-MemeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeAppTests.debug.xcconfig"; path = "Target Support Files/Pods-MemeAppTests/Pods-MemeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B53C9EB943F6F599F712BABF /* Pods-MemeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeApp.debug.xcconfig"; path = "Target Support Files/Pods-MemeApp/Pods-MemeApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14E29B48FFE103D78250EBEE /* Pods_MemeApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3653ADF8FB9FE917775B0974 /* Pods_MemeAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67CEA8D13B3D68B8EDDA8614 /* Pods_MemeApp_MemeAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +173,8 @@
 				0334A7E42A298F6900305E75 /* MemeAppTests */,
 				0334A7EE2A298F6900305E75 /* MemeAppUITests */,
 				0334A7CC2A298F6600305E75 /* Products */,
+				1468C42754B938128CF60200 /* Pods */,
+				BAEA7842BED73AB159655D69 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -257,6 +274,30 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		1468C42754B938128CF60200 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B53C9EB943F6F599F712BABF /* Pods-MemeApp.debug.xcconfig */,
+				08BA8E7E15A5F3CB8729D1FA /* Pods-MemeApp.release.xcconfig */,
+				2BC4FA612CBAA5CDC75DDF7C /* Pods-MemeApp-MemeAppUITests.debug.xcconfig */,
+				49F59624F1C70727666B17EC /* Pods-MemeApp-MemeAppUITests.release.xcconfig */,
+				90D64DACE8F3A59EB9A7F00E /* Pods-MemeAppTests.debug.xcconfig */,
+				6DFD177538960A4612143257 /* Pods-MemeAppTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BAEA7842BED73AB159655D69 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				027009249EECA60F8730E9FA /* Pods_MemeApp.framework */,
+				22767C9D3114C653F3488C07 /* Pods_MemeApp_MemeAppUITests.framework */,
+				7D7D00551ACF153FED95DEFF /* Pods_MemeAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -264,9 +305,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0334A7F52A298F6900305E75 /* Build configuration list for PBXNativeTarget "MemeApp" */;
 			buildPhases = (
+				F4BF8F0570EB12332CDB4039 /* [CP] Check Pods Manifest.lock */,
 				0334A7C72A298F6600305E75 /* Sources */,
 				0334A7C82A298F6600305E75 /* Frameworks */,
 				0334A7C92A298F6600305E75 /* Resources */,
+				79EF1F2CBE55B36D0BD194C1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -281,6 +324,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0334A7F82A298F6900305E75 /* Build configuration list for PBXNativeTarget "MemeAppTests" */;
 			buildPhases = (
+				4F7851041183602DCCDE1AA4 /* [CP] Check Pods Manifest.lock */,
 				0334A7DD2A298F6900305E75 /* Sources */,
 				0334A7DE2A298F6900305E75 /* Frameworks */,
 				0334A7DF2A298F6900305E75 /* Resources */,
@@ -299,9 +343,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0334A7FB2A298F6900305E75 /* Build configuration list for PBXNativeTarget "MemeAppUITests" */;
 			buildPhases = (
+				41EE9C2CAA130A11E590CF9A /* [CP] Check Pods Manifest.lock */,
 				0334A7E72A298F6900305E75 /* Sources */,
 				0334A7E82A298F6900305E75 /* Frameworks */,
 				0334A7E92A298F6900305E75 /* Resources */,
+				CBC7A8C2EEA629872C3D3287 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -337,7 +383,7 @@
 				};
 			};
 			buildConfigurationList = 0334A7C62A298F6600305E75 /* Build configuration list for PBXProject "MemeApp" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -384,6 +430,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		41EE9C2CAA130A11E590CF9A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MemeApp-MemeAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4F7851041183602DCCDE1AA4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MemeAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		79EF1F2CBE55B36D0BD194C1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MemeApp/Pods-MemeApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MemeApp/Pods-MemeApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MemeApp/Pods-MemeApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CBC7A8C2EEA629872C3D3287 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MemeApp-MemeAppUITests/Pods-MemeApp-MemeAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MemeApp-MemeAppUITests/Pods-MemeApp-MemeAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MemeApp-MemeAppUITests/Pods-MemeApp-MemeAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F4BF8F0570EB12332CDB4039 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MemeApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0334A7C72A298F6600305E75 /* Sources */ = {
@@ -568,6 +717,7 @@
 		};
 		0334A7F62A298F6900305E75 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B53C9EB943F6F599F712BABF /* Pods-MemeApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -604,6 +754,7 @@
 		};
 		0334A7F72A298F6900305E75 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08BA8E7E15A5F3CB8729D1FA /* Pods-MemeApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -640,6 +791,7 @@
 		};
 		0334A7F92A298F6900305E75 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90D64DACE8F3A59EB9A7F00E /* Pods-MemeAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -660,6 +812,7 @@
 		};
 		0334A7FA2A298F6900305E75 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DFD177538960A4612143257 /* Pods-MemeAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -680,6 +833,7 @@
 		};
 		0334A7FC2A298F6900305E75 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BC4FA612CBAA5CDC75DDF7C /* Pods-MemeApp-MemeAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -698,6 +852,7 @@
 		};
 		0334A7FD2A298F6900305E75 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49F59624F1C70727666B17EC /* Pods-MemeApp-MemeAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
