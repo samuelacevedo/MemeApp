@@ -25,7 +25,7 @@ enum NetworkError: Error {
 
 
 class HomeServices: NSObject {
-    func getPosts<T>(resource: Resource<T>, completion: @escaping (Result<T, NetworkError>) -> Void) {
+    func load<T>(resource: Resource<T>, completion: @escaping (Result<T, NetworkError>) -> Void) {
         var request = URLRequest(url: resource.url)
         request.httpMethod = resource.httpMethos.rawValue
         request.httpBody = resource.body
@@ -44,41 +44,44 @@ class HomeServices: NSObject {
                 
                 if jsonresp["data"]["children"].exists(), let childrenAsString = jsonresp["data"]["children"].rawString() {
                     let childrenAsJSON = JSON.init(parseJSON: childrenAsString)
-                    var post: Post = Post()
                     if let childrens = childrenAsJSON.array {
                         var listOfPosts : [Post] = []
                         for child in childrens {
+                            var post: Post = Post()
+                            //MARK: Title
                             if child["data"]["title"].exists() {
-                                print(child["data"]["title"].rawString()!)
+                                post.title = child["data"]["title"].rawString()!
                             }
+                            //MARK: URL
+                            if child["data"]["url"].exists() {
+                                post.urlAsString = child["data"]["url"].rawString()!
+                                if let url = URL(string: post.urlAsString) {
+                                    post.url = url
+                                }
+                            }
+                            //MARK: Score
+                            if child["data"]["score"].exists() {
+                                if let score = child["data"]["score"].int {
+                                    post.score = score
+                                }
+                            }
+                            //MARK: Comments
+                            if child["data"]["num_comments"].exists() {
+                                if let comments = child["data"]["num_comments"].int {
+                                    post.commentCount = comments
+                                }
+                            }
+                            
+                            listOfPosts.append(post)
                         }
+                        
+                        //MARK: Completion
+                        if let posts : T = listOfPosts as? T { completion(.success(posts)) }
+                        else { completion(.failure(.decodingError)) }
+
                     }
                 }
             }
-                    
-            /*if jsonresp.count == 0 {
-                OperationQueue.main.addOperation {
-                    completion(nil, "Ha ocurrido un error")
-                }
-                return
-            }
-            
-            switch jsonresp["R"] {
-            case "0":
-                DispatchQueue.main.async {
-                    do {*/
-            
-            /*
-            let result = try? JSONDecoder().decode(T.self, from: data)
-            if let result = result {
-                print(result)
-                DispatchQueue.main.async {
-                    completion(.success(result))
-                }
-            }else {
-                completion(.failure(.domainError))
-            }*/
-            
         }.resume()
     }
 }

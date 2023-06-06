@@ -135,8 +135,8 @@
 			children = (
 				032C9A122A2D304700B86878 /* Home.storyboard */,
 				032C9A142A2D310E00B86878 /* HomeViewController.swift */,
-				032C9A1F2A2D51D700B86878 /* PostTableViewCell.swift */,
 				032C9A202A2D51D700B86878 /* PostTableViewCell.xib */,
+				032C9A1F2A2D51D700B86878 /* PostTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -145,7 +145,6 @@
 			isa = PBXGroup;
 			children = (
 				032C9A1B2A2D4F4900B86878 /* Post.swift */,
-				032C9A232A2D70EB00B86878 /* Resource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -252,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				037FC41B2A29B42700300439 /* K.swift */,
+				032C9A232A2D70EB00B86878 /* Resource.swift */,
 				032C9A0C2A2AD8F400B86878 /* ButtonExtension.swift */,
 				032C9A252A2D7B2100B86878 /* URL.swift */,
 			);
@@ -284,7 +284,6 @@
 				90D64DACE8F3A59EB9A7F00E /* Pods-MemeAppTests.debug.xcconfig */,
 				6DFD177538960A4612143257 /* Pods-MemeAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

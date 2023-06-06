@@ -4,6 +4,7 @@ target 'MemeApp' do
   use_frameworks!
   
   pod 'SwiftyJSON', '~> 4.0'
+  pod 'SkeletonView'
 
   target 'MemeAppTests' do
     inherit! :search_paths

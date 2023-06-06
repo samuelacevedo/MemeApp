@@ -1,16 +1,20 @@
 PODS:
+  - SkeletonView (1.30.4)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
+  - SkeletonView
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
+    - SkeletonView
     - SwiftyJSON
 
 SPEC CHECKSUMS:
+  SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 35eabd778ecb061d866ea29b0be9b0f3d4dc670e
+PODFILE CHECKSUM: 5c912e12420f2ecc86415346492434f1bb5fab94
 
 COCOAPODS: 1.12.1

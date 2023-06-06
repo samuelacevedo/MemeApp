@@ -9,13 +9,15 @@ import Foundation
 
 struct Post {
     var title: String
-    var url: String
+    var urlAsString: String
+    var url: URL?
     var score: Int
     var commentCount: Int
     
     init(){
         title = ""
-        url = ""
+        urlAsString = ""
+        url = nil
         score = -1
         commentCount = -1
     }
