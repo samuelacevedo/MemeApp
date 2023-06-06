@@ -24,6 +24,9 @@ class HomeViewController: UIViewController {
     
     private let cellIdentifier: String = "PostCell"
     
+    //MARK: Pull To Refresh
+    var refreshControl: UIRefreshControl!
+    
     //MARK: - View Did Layout Subviews
     override func viewDidLayoutSubviews() {
         
@@ -45,6 +48,11 @@ class HomeViewController: UIViewController {
         let cell = UINib(nibName: "PostTableViewCell", bundle: nil)
         tableView.register(cell, forCellReuseIdentifier: cellIdentifier)
         
+        //MARK: Pull To Refresh
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
+        
     }
     
     //MARK: - View Will Appear
@@ -56,6 +64,19 @@ class HomeViewController: UIViewController {
         loadPosts()
     }
     
+    //MARK: - Pull To Refresh
+    func run(after wait: TimeInterval, closure: @escaping () -> Void) {
+        let queue = DispatchQueue.main
+        queue.asyncAfter(deadline: DispatchTime.now() + wait, execute: closure)
+    }
+    
+    @objc func onRefresh() {
+        run(after: 2) {
+            self.refreshControl.endRefreshing()
+            self.pagination(pull: true)
+        }
+    }
+    
     //MARK: - Load Posts
     private func loadPosts() {
         viewModel?.load(Post.all)
@@ -65,7 +86,7 @@ class HomeViewController: UIViewController {
                 self.dynamicPostsList = posts
                 self.after = after
                 
-                self.viewModel?.posts.value = (nil, nil)
+                self.viewModel?.clean()
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -77,18 +98,23 @@ class HomeViewController: UIViewController {
     }
     
     //MARK: - Pagination
-    private func pagination() {
+    private func pagination(pull: Bool = false ) {
         if let pagination = after {
             viewModel?.load(
                 Post.pagination(after: pagination)
             )
             viewModel?.posts.bind { (posts, after) in
                 if let posts = posts {
+                    if pull {
+                        self.postsList = []
+                        self.dynamicPostsList = []
+                    }
+                    
                     self.postsList.append(contentsOf: posts)
                     self.dynamicPostsList = self.postsList
                     self.after = after
                     
-                    self.viewModel?.posts.value = (nil, nil)
+                    self.viewModel?.clean()
                     
                     DispatchQueue.main.async {
                         self.tableView.reloadData()

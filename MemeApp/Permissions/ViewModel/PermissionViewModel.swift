@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 import AVFoundation
 import UserNotifications
 import CoreLocation
@@ -120,6 +121,43 @@ class PermissionViewModel : NSObject, ObservablePermissionProtocol, CLLocationMa
             default:
                 self.permissionResult.value = .failure(.none)
             
+        }
+    }
+}
+
+extension PermissionViewModel {
+    //MARK: - Next View Controller
+    func getNextViewController(permissionEnum: Permission) -> UIViewController? {
+        switch permissionEnum {
+            case .camera:
+                if let vc = UIStoryboard(name: "Permissions", bundle: nil).instantiateViewController(withIdentifier: "PermissionVC") as? PermissionViewController {
+                    vc.permissionEnum = .notification
+                    return vc
+                }else { return nil }
+            case .notification:
+                if let vc = UIStoryboard(name: "Permissions", bundle: nil).instantiateViewController(withIdentifier: "PermissionVC") as? PermissionViewController {
+                    vc.permissionEnum = .location
+                    return vc
+                }else { return nil }
+            case .location:
+                return nil
+            case .none:
+                return nil
+        }
+    }
+    
+    //MARK: - Change Roor View Controller
+    func changeRootViewController(){
+        //MARK: Set Finish Permission & User Defaults
+        let defaults = UserDefaults.standard
+        defaults.set(true, forKey: "permissions")
+        
+        //MARK: Change RootViewController To Home
+        let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
+        if let home = homeStoryboard.instantiateViewController(withIdentifier: "HomeNavController") as? UINavigationController {
+            if let scene = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+                scene.changeRootViewController(home)
+            }
         }
     }
 }

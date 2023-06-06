@@ -71,13 +71,14 @@ class PermissionViewController: UIViewController {
                     switch respond {
                         case .success(_):
                         DispatchQueue.main.async {
-                            if let vc = UIStoryboard(name: "Permissions", bundle: nil).instantiateViewController(withIdentifier: "PermissionVC") as? PermissionViewController {
-                                vc.permissionEnum = .notification
-                                self.navigationController?.pushViewController(vc, animated: true)
-                            }
+                            self.nextViewController()
                         }
                         case .failure(let error):
-                            print(error.localizedDescription)
+                            DispatchQueue.main.async {
+                                if error != .none {
+                                    self.nextViewController()
+                                }
+                            }
                     }
                 }
             case .notification:
@@ -86,13 +87,14 @@ class PermissionViewController: UIViewController {
                     switch respond {
                     case .success(_):
                         DispatchQueue.main.async {
-                            if let vc = UIStoryboard(name: "Permissions", bundle: nil).instantiateViewController(withIdentifier: "PermissionVC") as? PermissionViewController {
-                                vc.permissionEnum = .location
-                                self.navigationController?.pushViewController(vc, animated: true)
-                            }
+                            self.nextViewController()
                         }
                     case .failure(let error):
-                        print(error.localizedDescription)
+                        DispatchQueue.main.async {
+                            if error != .none {
+                                self.nextViewController()
+                            }
+                        }
                     }
                 }
             case .location:
@@ -101,33 +103,39 @@ class PermissionViewController: UIViewController {
                     switch respond {
                         case .success(_):
                             DispatchQueue.main.async {
-                                //MARK: Set Finish Permission & User Defaults
-                                let defaults = UserDefaults.standard
-                                defaults.set(true, forKey: "permissions")
-                                
-                                //MARK: Change RootViewController To Home
-                                let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
-                                if let home = homeStoryboard.instantiateViewController(withIdentifier: "HomeNavController") as? UINavigationController {
-                                    if let scene = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
-                                        scene.changeRootViewController(home)
-                                    }
-                                }
+                                self.viewModel?.changeRootViewController()
                             }
                         case .failure(let error):
-                            print(error)
-                            print(error.hashValue)
-                            print(error.localizedDescription)
+                            DispatchQueue.main.async {
+                                if error != .none {
+                                    self.viewModel?.changeRootViewController()
+                                }
+                            }
                     }
-                    
                 }
             case .none :
                 print("none")
         }
     }
     
+    private func nextViewController() {
+        if let vc = self.viewModel?.getNextViewController(permissionEnum: self.permissionEnum) {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     //MARK: - Cancel
     @IBAction func cancelButtonAction(_ sender: Any) {
-        
+        switch permissionEnum {
+            case .camera:
+                self.nextViewController()
+            case .notification:
+                self.nextViewController()
+            case .location:
+                self.viewModel?.changeRootViewController()
+            case .none:
+                print("none")
+        }
     }
     
 }

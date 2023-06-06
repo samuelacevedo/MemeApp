@@ -43,5 +43,7 @@ class HomeViewModel: NSObject, ObservableHomeProtocol {
         })
     }
     
-    
+    func clean() {
+        self.posts.value = (nil, nil)
+    }
 }
