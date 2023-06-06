@@ -1,12 +1,12 @@
 # MemeApp
 
-- A simple project that fetch memes from Reddit /r/chile/new.
-- Memeapp project is implemented using Model-View-ViewModel (MVVM) pattern using Cocoa Key Value Observer (KVO) and Generics.
-- Dependencies managment: Cocoapods.
+- A simple project that fetches memes from Reddit /r/chile/new.
+- The Memeapp project is implemented using Model-View-ViewModel (MVVM) pattern using Cocoa Key Value Observer (KVO) and Generics.
+- Dependency management: Cocoapods.
 - Dependencies used for the project:
-    - Skeleton: For content waiting.
-    - Kingfisher: For cache images.
-    - SwiftyJSON: For better JSON files manipulation and filters.
+    - Skeleton: For loading indications.
+    - Kingfisher: For image caching.
+    - SwiftyJSON: For better JSON files manipulation and filtering.
 - Permissions on the app:
     - Camera
     - Notification
