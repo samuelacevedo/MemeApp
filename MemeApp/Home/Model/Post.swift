@@ -31,4 +31,13 @@ extension Post {
         
         return Resource<[Post]>(url: url)
     }()
+    
+    static func pagination(after: String) -> Resource<[Post]> {
+        guard let url = URL(string: "https://www.reddit.com/r/chile/new/.json?limit=100&after=\(after)") else {
+            fatalError("URL is incorrect")
+        }
+        
+        return Resource<[Post]>(url: url)
+    }
+
 }

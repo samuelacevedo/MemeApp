@@ -25,7 +25,7 @@ enum NetworkError: Error {
 
 
 class HomeServices: NSObject {
-    func load<T>(resource: Resource<T>, completion: @escaping (Result<T, NetworkError>) -> Void) {
+    func load<T>(resource: Resource<T>, completion: @escaping (Result<T, NetworkError>, String?) -> Void) {
         var request = URLRequest(url: resource.url)
         request.httpMethod = resource.httpMethos.rawValue
         request.httpBody = resource.body
@@ -34,14 +34,21 @@ class HomeServices: NSObject {
         URLSession.shared.dataTask(with: request) { data, response, error in
             
             guard let data = data, error == nil else {
-                completion(.failure(.domainError))
+                completion(.failure(.domainError), nil)
                 
                 return
             }
             
             if let responseAsString = String(data: data, encoding: .utf8) {
                 let jsonresp = JSON.init(parseJSON: responseAsString)
-                //print(jsonresp)
+                
+                //MARK: Pagination Value
+                var pagination: String?
+                if jsonresp["data"]["after"].exists() {
+                    if let after = jsonresp["data"]["after"].rawString() {
+                        pagination = after
+                    }
+                }
                 
                 if jsonresp["data"]["children"].exists(), let childrenAsString = jsonresp["data"]["children"].rawString() {
                     let childrenAsJSON = JSON.init(parseJSON: childrenAsString)
@@ -83,8 +90,11 @@ class HomeServices: NSObject {
                         }
                         
                         //MARK: Completion
-                        if let posts : T = listOfPosts as? T { completion(.success(posts)) }
-                        else { completion(.failure(.decodingError)) }
+                        if let posts : T = listOfPosts as? T {
+                            if let after = pagination { completion(.success(posts), after) }
+                            else { completion(.success(posts), nil) }
+                        }
+                        else { completion(.failure(.decodingError), nil) }
 
                     }
                 }
