@@ -14,6 +14,10 @@ class HomeViewController: UIViewController {
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
     
+    //MARK: No Results
+    @IBOutlet var noResultView: UIView!
+    @IBOutlet var noResultDescription: UILabel!
+    
     //MARK: View Model
     var viewModel: HomeViewModel?
     
@@ -27,9 +31,11 @@ class HomeViewController: UIViewController {
     //MARK: Pull To Refresh
     var refreshControl: UIRefreshControl!
     
+    var searchQueue: OperationQueue = OperationQueue()
+
     //MARK: - View Did Layout Subviews
     override func viewDidLayoutSubviews() {
-        
+        tableView.layoutSkeletonIfNeeded()
     }
     
     //MARK: - View Did Load
@@ -53,12 +59,17 @@ class HomeViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
         
+        //MARK: Search Bar
+        searchBar.backgroundImage = UIImage()
+        searchBar.delegate = self
+        
+        //MARK: Set No Result Description
+        viewModel?.setNoResultDescription(label: noResultDescription)
     }
     
     //MARK: - View Will Appear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         
         //MARK: Load Posts
         loadPosts()
@@ -77,10 +88,21 @@ class HomeViewController: UIViewController {
         }
     }
     
+    //MARK: Skeleton
+    func setupSkeleton(){
+        self.viewModel?.enableSkeleton(viewController: self)
+        self.viewModel?.showAnimation(viewController: self)
+    }
+    
     //MARK: - Load Posts
     private func loadPosts() {
+        DispatchQueue.main.async {
+            self.setupSkeleton()
+        }
+        
         viewModel?.load(Post.all)
         viewModel?.posts.bind { (posts, after) in
+            //MARK: DisableSkeleton
             if let posts = posts {
                 self.postsList = posts
                 self.dynamicPostsList = posts
@@ -89,10 +111,9 @@ class HomeViewController: UIViewController {
                 self.viewModel?.clean()
                 
                 DispatchQueue.main.async {
+                    self.viewModel?.disableSkeleton(viewController: self)
                     self.tableView.reloadData()
                 }
-            }else {
-                
             }
         }
     }
@@ -101,8 +122,8 @@ class HomeViewController: UIViewController {
     private func pagination(pull: Bool = false ) {
         if let pagination = after {
             viewModel?.load(
-                Post.pagination(after: pagination)
-            )
+                            Post.pagination(after: pagination)
+                        )
             viewModel?.posts.bind { (posts, after) in
                 if let posts = posts {
                     if pull {
@@ -119,8 +140,43 @@ class HomeViewController: UIViewController {
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
-                }else {
+                }
+            }
+        }
+    }
+    
+    //MARK: - Search Posts
+    private func searchingPosts(searchText: String){
+        DispatchQueue.main.async {
+            self.noResultView.isHidden = true
+            self.setupSkeleton()
+        }
+        
+        viewModel?.load(
+            Post.searchingPosts(byText: searchText)
+        )
+        viewModel?.posts.bind { (posts, after) in
+            if let posts = posts {
+                if posts.count > 0 {
+                    self.dynamicPostsList = []
                     
+                    self.dynamicPostsList = posts
+                    
+                    self.viewModel?.clean()
+                    
+                    DispatchQueue.main.async {
+                        self.viewModel?.disableSkeleton(viewController: self)
+                        self.noResultView.isHidden = true
+                        self.tableView.reloadData()
+                    }
+                }else {
+                    self.viewModel?.clean()
+                    DispatchQueue.main.async {
+                        self.viewModel?.disableSkeleton(viewController: self)
+                        self.dynamicPostsList = []
+                        self.noResultView.isHidden = false
+                        self.tableView.reloadData()
+                    }
                 }
             }
         }
@@ -185,3 +241,21 @@ extension HomeViewController: UITableViewDelegate, SkeletonTableViewDataSource{
         }
     }
 }
+
+
+extension HomeViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText != "" {
+            self.searchQueue.cancelAllOperations()
+            self.searchQueue.addOperation { [weak self] in
+                self?.searchingPosts(searchText: searchText)
+            }
+        }else {
+            self.searchQueue.cancelAllOperations()
+            self.noResultView.isHidden = true
+            self.dynamicPostsList = self.postsList
+            self.tableView.reloadData()
+        }
+    }
+}
+

@@ -39,5 +39,13 @@ extension Post {
         
         return Resource<[Post]>(url: url)
     }
+    
+    static func searchingPosts(byText: String) -> Resource<[Post]> {
+        guard let url = URL(string: "https://www.reddit.com/r/chile/search.json?q=\(byText)&limit=100") else {
+            fatalError("URL is incorrect")
+        }
+        
+        return Resource<[Post]>(url: url)
+    }
 
 }

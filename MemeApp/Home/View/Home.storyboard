@@ -52,6 +52,39 @@
                                 <rect key="frame" x="19.666666666666657" y="212" width="353.66666666666674" height="596"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W3j-cU-lXV" userLabel="NoResultsView">
+                                <rect key="frame" x="39.333333333333343" y="254" width="314.33333333333326" height="429"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoResultIcon" translatesAutoresizingMaskIntoConstraints="NO" id="KEW-ZA-q7h">
+                                        <rect key="frame" x="31.333333333333329" y="0.0" width="251.66666666666669" height="220.33333333333334"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Results" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHm-In-DXc" userLabel="Title">
+                                        <rect key="frame" x="109" y="226.33333333333331" width="96.666666666666686" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jao-TB-ecR" userLabel="Description">
+                                        <rect key="frame" x="22" y="262.33333333333337" width="270.33333333333331" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="eHm-In-DXc" firstAttribute="centerX" secondItem="W3j-cU-lXV" secondAttribute="centerX" id="6hn-vU-hSI"/>
+                                    <constraint firstItem="Jao-TB-ecR" firstAttribute="centerX" secondItem="W3j-cU-lXV" secondAttribute="centerX" id="72h-bf-Mz4"/>
+                                    <constraint firstItem="KEW-ZA-q7h" firstAttribute="top" secondItem="W3j-cU-lXV" secondAttribute="top" id="CLa-27-Gbn"/>
+                                    <constraint firstItem="KEW-ZA-q7h" firstAttribute="width" secondItem="W3j-cU-lXV" secondAttribute="width" multiplier="0.8" id="E6g-qE-aSv"/>
+                                    <constraint firstItem="Jao-TB-ecR" firstAttribute="width" secondItem="W3j-cU-lXV" secondAttribute="width" multiplier="0.86" id="ISx-ho-9Fm"/>
+                                    <constraint firstItem="KEW-ZA-q7h" firstAttribute="height" secondItem="W3j-cU-lXV" secondAttribute="width" multiplier="0.7" id="KPX-lk-UTV"/>
+                                    <constraint firstItem="KEW-ZA-q7h" firstAttribute="centerX" secondItem="W3j-cU-lXV" secondAttribute="centerX" id="mS1-7j-SwK"/>
+                                    <constraint firstItem="Jao-TB-ecR" firstAttribute="top" secondItem="eHm-In-DXc" secondAttribute="bottom" constant="12" id="oeI-8n-HoO"/>
+                                    <constraint firstItem="Jao-TB-ecR" firstAttribute="height" secondItem="W3j-cU-lXV" secondAttribute="height" multiplier="0.14" id="p3C-Pc-r9A"/>
+                                    <constraint firstItem="eHm-In-DXc" firstAttribute="top" secondItem="KEW-ZA-q7h" secondAttribute="bottom" constant="6" id="pzI-iQ-i95"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -60,18 +93,24 @@
                             <constraint firstItem="PEM-MS-3Ni" firstAttribute="top" secondItem="hQJ-ig-blp" secondAttribute="bottom" constant="8" id="3SX-KW-GsT"/>
                             <constraint firstItem="R7C-pj-U4y" firstAttribute="top" secondItem="PEM-MS-3Ni" secondAttribute="bottom" constant="10" id="DlQ-7E-cwe"/>
                             <constraint firstItem="hQJ-ig-blp" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="0.1" id="GEF-hL-14R"/>
+                            <constraint firstItem="W3j-cU-lXV" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Gu9-0t-yn5"/>
                             <constraint firstItem="R7C-pj-U4y" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="0.9" id="Q9i-Sp-Pkp"/>
                             <constraint firstItem="hQJ-ig-blp" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="XtQ-yD-IDF"/>
+                            <constraint firstItem="W3j-cU-lXV" firstAttribute="height" secondItem="vDu-zF-Fre" secondAttribute="height" multiplier="0.6" id="aCE-WL-49n"/>
                             <constraint firstItem="PEM-MS-3Ni" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="ajo-Sv-51z"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="R7C-pj-U4y" secondAttribute="bottom" constant="10" id="e4U-E2-om8"/>
                             <constraint firstItem="R7C-pj-U4y" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="koy-t0-s7e"/>
+                            <constraint firstItem="W3j-cU-lXV" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" multiplier="1.1" id="n99-E6-s11"/>
                             <constraint firstItem="PEM-MS-3Ni" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="0.85" id="orA-tp-BYg"/>
+                            <constraint firstItem="W3j-cU-lXV" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="0.8" id="vnr-SU-h4n"/>
                             <constraint firstItem="hQJ-ig-blp" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="yDq-iP-ywD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="P0p-gb-hfh"/>
                     <connections>
                         <outlet property="configButton" destination="hQJ-ig-blp" id="8dE-ZG-AI6"/>
+                        <outlet property="noResultDescription" destination="Jao-TB-ecR" id="eRW-6j-hQM"/>
+                        <outlet property="noResultView" destination="W3j-cU-lXV" id="Kgo-0h-2ZL"/>
                         <outlet property="searchBar" destination="PEM-MS-3Ni" id="cA0-2l-4Qo"/>
                         <outlet property="tableView" destination="R7C-pj-U4y" id="9D3-sT-PF8"/>
                     </connections>
@@ -83,6 +122,7 @@
     </scenes>
     <resources>
         <image name="ConfigIcon" width="22" height="17"/>
+        <image name="NoResultIcon" width="354" height="290"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

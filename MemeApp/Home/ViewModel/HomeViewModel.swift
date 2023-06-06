@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import UIKit
+import SkeletonView
 
 //MARK: - Protocol
 protocol ObservableHomeProtocol {
@@ -32,11 +34,7 @@ class HomeViewModel: NSObject, ObservableHomeProtocol {
         service?.load(resource: resource, completion: { (result, after) in
             switch result {
                 case .success(let posts):
-                    if posts.count > 0 {
-                        self.posts.value = (posts, after)
-                    }else {
-                        self.posts.value = (nil, after)
-                    }
+                    self.posts.value = (posts, after)
                 case .failure(_):
                     self.posts.value = (nil, after)
             }
@@ -45,5 +43,30 @@ class HomeViewModel: NSObject, ObservableHomeProtocol {
     
     func clean() {
         self.posts.value = (nil, nil)
+    }
+    
+    func setNoResultDescription(label: UILabel){
+        label.text = "Sorry, there are no results for this search.\nPlease try anothe phrase."
+    }
+}
+
+//MARK: - Skeleton Setup
+extension HomeViewModel {
+    func enableSkeleton(viewController: UIViewController) {
+        if let home = viewController as? HomeViewController {
+            home.tableView.isSkeletonable = true
+        }
+    }
+    
+    func showAnimation(viewController: UIViewController) {
+        if let home = viewController as? HomeViewController {
+            home.tableView.showAnimatedSkeleton()
+        }
+    }
+    
+    func disableSkeleton(viewController: UIViewController) {
+        if let home = viewController as? HomeViewController {
+            home.tableView.hideSkeleton()
+        }
     }
 }
