@@ -25,7 +25,7 @@ struct Post {
 
 extension Post {
     static var all: Resource<[Post]> = {
-        guard let url = URL(string: "https://www.reddit.com/r/chile/new/.json?limit=2") else {
+        guard let url = URL(string: "https://www.reddit.com/r/chile/new/.json?limit=100") else {
             fatalError("URL is incorrect")
         }
         

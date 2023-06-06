@@ -5,14 +5,5 @@ target 'MemeApp' do
   
   pod 'SwiftyJSON', '~> 4.0'
   pod 'SkeletonView'
-
-  target 'MemeAppTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'MemeAppUITests' do
-    # Pods for testing
-  end
-
+  pod "Kingfisher", '~> 7.0'
 end

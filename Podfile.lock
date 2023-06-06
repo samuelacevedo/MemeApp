@@ -1,20 +1,24 @@
 PODS:
+  - Kingfisher (7.6.2)
   - SkeletonView (1.30.4)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
+  - Kingfisher (~> 7.0)
   - SkeletonView
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
+    - Kingfisher
     - SkeletonView
     - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Kingfisher: 6c5449c6450c5239166510ba04afe374a98afc4f
   SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 5c912e12420f2ecc86415346492434f1bb5fab94
+PODFILE CHECKSUM: 9d0a43d08c14b63e1b2de5111adacc49570d6b61
 
 COCOAPODS: 1.12.1

@@ -7,6 +7,7 @@
 
 import UIKit
 import SkeletonView
+import Kingfisher
 
 class HomeViewController: UIViewController {
     @IBOutlet var configButton: UIButton!
@@ -91,6 +92,19 @@ extension HomeViewController: UITableViewDelegate, SkeletonTableViewDataSource{
             cell.titleLabel.text = element.title
             cell.scoreValue.text = String(element.score)
             cell.commentValue.text = String(element.commentCount)
+            
+            if let urlUnwrapped = element.url {
+                print(urlUnwrapped)
+                
+                let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView.init(style: .medium)
+                cell.addSubview(activityIndicator)
+                activityIndicator.startAnimating()
+                activityIndicator.center = cell.postImage.center
+                
+                cell.postImage.kf.setImage(with: urlUnwrapped, completionHandler: { _ in
+                    activityIndicator.removeFromSuperview()
+                })
+            }
         }
         
         return cell

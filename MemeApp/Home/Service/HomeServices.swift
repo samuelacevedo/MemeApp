@@ -41,12 +41,19 @@ class HomeServices: NSObject {
             
             if let responseAsString = String(data: data, encoding: .utf8) {
                 let jsonresp = JSON.init(parseJSON: responseAsString)
+                //print(jsonresp)
                 
                 if jsonresp["data"]["children"].exists(), let childrenAsString = jsonresp["data"]["children"].rawString() {
                     let childrenAsJSON = JSON.init(parseJSON: childrenAsString)
+                    
+                          
                     if let childrens = childrenAsJSON.array {
+                        //MARK: Filters
+                        let filterByMemes = childrens.filter { $0["data"]["link_flair_text"].stringValue.contains("Shitposting") }
+                        let filterByImage = filterByMemes.filter { $0["data"]["post_hint"].stringValue.contains("image") }
+                        
                         var listOfPosts : [Post] = []
-                        for child in childrens {
+                        for child in filterByImage {
                             var post: Post = Post()
                             //MARK: Title
                             if child["data"]["title"].exists() {
