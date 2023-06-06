@@ -33,23 +33,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         if let root = viewController {
+            window?.overrideUserInterfaceStyle = .light
             window?.rootViewController = root
             window?.makeKeyAndVisible()
         }
-            
-        /*
-        let permissionStoryboard = UIStoryboard(name: "Permissions", bundle: nil)
-        //let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
-        /*if let home = homeStoryboard.instantiateViewController(withIdentifier: "HomeNavController") as? UINavigationController {
-            window?.rootViewController = home
-            window?.makeKeyAndVisible()
-        }*/
-        
-        if let permission = permissionStoryboard.instantiateViewController(withIdentifier: "PermissionNavController") as? UINavigationController {
-            window?.rootViewController = permission
-            window?.makeKeyAndVisible()
-        }
-        */
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -93,6 +80,7 @@ extension SceneDelegate {
     //MARK: Change Root View Controller
     func changeRootViewController(_ vc: UIViewController, animated: Bool = true) {
         if let w = window {
+            w.overrideUserInterfaceStyle = .light
             w.rootViewController = vc
             w.makeKeyAndVisible()
         }

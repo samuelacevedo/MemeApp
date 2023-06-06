@@ -49,6 +49,8 @@ class HomeViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
+        tableView.tableFooterView?.backgroundColor = .white
+        tableView.backgroundView?.backgroundColor = .white
         
         //MARK: Register Cell
         let cell = UINib(nibName: "PostTableViewCell", bundle: nil)
@@ -82,6 +84,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc func onRefresh() {
+        self.view.endEditing(true)
         run(after: 2) {
             self.refreshControl.endRefreshing()
             self.pagination(pull: true)
@@ -210,6 +213,7 @@ extension HomeViewController: UITableViewDelegate, SkeletonTableViewDataSource{
             
             if let urlUnwrapped = element.url {
                 let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView.init(style: .medium)
+                activityIndicator.color = .black
                 cell.addSubview(activityIndicator)
                 activityIndicator.startAnimating()
                 activityIndicator.center = cell.postImage.center
@@ -224,7 +228,7 @@ extension HomeViewController: UITableViewDelegate, SkeletonTableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return self.view.frame.height * 0.3
+        return self.view.frame.width * 0.7
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
